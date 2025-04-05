@@ -3,391 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gemini Conversation: Simple Calculator Code</title>
+    <title>12 Steps: AI-Driven Wiki on GitHub Pages</title>
     <style>
         body {
             font-family: sans-serif;
             line-height: 1.6;
-            margin: 20px;
+            margin: 0;
+            padding: 0;
             background-color: #f4f4f4;
             color: #333;
         }
         .container {
-            background-color: #fff;
+            max-width: 800px;
+            margin: 30px auto;
             padding: 20px;
+            background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            max-width: 900px;
-            margin: 20px auto;
-        }
-        h1, h2, h3, h4 {
-            color: #2c3e50;
         }
         h1 {
+            color: #2c3e50;
             text-align: center;
             border-bottom: 2px solid #eee;
             padding-bottom: 10px;
-        }
-        .prompt, .response {
             margin-bottom: 25px;
-            padding: 15px;
-            border-radius: 5px;
         }
-        .prompt {
-            background-color: #eaf2f8;
-            border-left: 4px solid #3498db;
+        ol {
+            padding-left: 20px; /* Indent the list numbers */
         }
-        .response {
-            background-color: #e8f6f3;
-            border-left: 4px solid #1abc9c;
+        li {
+            margin-bottom: 15px; /* Space between steps */
         }
-        blockquote {
-            margin: 10px 0 10px 20px;
-            padding: 10px;
+        strong {
+            color: #34495e; /* Slightly darker color for emphasis */
+        }
+        code {
             background-color: #ecf0f1;
-            border-left: 3px solid #bdc3c7;
-            font-style: italic;
-        }
-        pre {
-            background-color: #2d2d2d; /* Dark background for code */
-            color: #f0f0f0;           /* Light text for code */
-            padding: 15px;
-            border-radius: 5px;
-            overflow-x: auto;         /* Add scrollbars if code is too wide */
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
             font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
             font-size: 0.9em;
         }
-        code {
-            font-family: inherit; /* Use the font from <pre> */
-        }
-        ul, ol {
-            margin-left: 20px;
-        }
-        li {
-            margin-bottom: 5px;
-        }
-        strong {
-            color: #34495e;
+        .security-note {
+            color: #c0392b; /* Reddish color for security warning */
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Gemini Conversation</h1>
+        <h1>Building an AI-Driven Wiki on GitHub Pages: 12 Steps</h1>
 
-        <div class="prompt">
-            <h2>User Prompt</h2>
-            <blockquote>
-                convert https://gemini.google.com/share/ddc7606e17a7 to an HTML Page
-            </blockquote>
-        </div>
-
-        <div class="response">
-            <h2>Gemini Response</h2>
-
-            <h3>HTML Page: Simple Calculator</h3>
-
-            <p>Okay, here is the HTML code for a simple calculator based on the content from the Gemini share link you provided. This single HTML file includes the structure (HTML), styling (CSS within <code><style></code> tags), and functionality (JavaScript within <code><script></code> tags).</p>
-
-            <h4>HTML (including CSS and JavaScript)</h4>
-            <pre><code class="language-html"><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Calculator</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f0f0f0;
-            font-family: sans-serif;
-        }
-        .calculator {
-            background-color: #333;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        #display {
-            width: 100%;
-            padding: 15px 10px;
-            font-size: 2em;
-            text-align: right;
-            border: none;
-            background-color: #444;
-            color: white;
-            border-radius: 5px;
-            margin-bottom: 15px;
-            box-sizing: border-box; /* Include padding in width */
-        }
-        .buttons {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-        }
-        button {
-            padding: 20px;
-            font-size: 1.2em;
-            border: none;
-            border-radius: 5px;
-            background-color: #555;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
-        button:hover {
-            background-color: #666;
-        }
-        button:active {
-            background-color: #777;
-        }
-        .equals {
-            grid-column: span 1; /* Default span */
-            background-color: #f39c12; /* Orange */
-        }
-        .equals:hover {
-            background-color: #e67e22;
-        }
-        /* Make equals button potentially span 2 columns if needed, but layout looks ok */
-        /* Example for spanning: .equals { grid-column: span 2; } */
-        .zero {
-            grid-column: span 1; /* Span 1 column */
-        }
-        /* If you want zero to span 2 columns: */
-        /* .zero { grid-column: span 2; } */
-        /* Adjust grid template if zero spans 2: grid-template-columns: repeat(4, 1fr); stays */
-
-        /* Adjust last row layout specifically if needed */
-        /* For example, to make '=' take the last spot correctly */
-        .buttons > button:nth-last-child(1) { /* Style the = button specifically if needed */
-             /* grid-column-start: 4; */ /* Example */
-        }
-         .buttons > button:nth-last-child(2) { /* Style the . button */
-             /* grid-column-start: 3; */ /* Example */
-        }
-         .buttons > button:nth-last-child(3) { /* Style the 0 button */
-            /* grid-column: span 2; */ /* Example if spanning */
-            /* grid-column-start: 1; */ /* Example */
-        }
-    </style>
-</head>
-<body>
-
-    <div class="calculator">
-        <input type="text" id="display" disabled>
-        <div class="buttons">
-            <!-- Row 1 -->
-            <button onclick="clearDisplay()">C</button>
-            <button onclick="appendOperator('/')">/</button>
-            <button onclick="appendOperator('*')">*</button>
-            <button onclick="deleteLast()">DEL</button>
-
-            <!-- Row 2 -->
-            <button onclick="appendNumber('7')">7</button>
-            <button onclick="appendNumber('8')">8</button>
-            <button onclick="appendNumber('9')">9</button>
-            <button onclick="appendOperator('-')">-</button>
-
-            <!-- Row 3 -->
-            <button onclick="appendNumber('4')">4</button>
-            <button onclick="appendNumber('5')">5</button>
-            <button onclick="appendNumber('6')">6</button>
-            <button onclick="appendOperator('+')">+</button>
-
-            <!-- Row 4 & 5 combined for standard layout -->
-            <button onclick="appendNumber('1')">1</button>
-            <button onclick="appendNumber('2')">2</button>
-            <button onclick="appendNumber('3')">3</button>
-            <button onclick="calculateResult()" class="equals" style="grid-row: span 2;">=</button> {/* Make equals span 2 rows */}
-
-
-            <!-- Row 5 -->
-            <button onclick="appendNumber('0')" class="zero" style="grid-column: span 2;">0</button> {/* Make 0 span 2 columns */}
-            <button onclick="appendDecimal()">.</button>
-            <!-- Equals button is moved to the row above and spans 2 rows -->
-
-
-        </div>
-    </div>
-
-    <script>
-        let display = document.getElementById('display');
-        let currentInput = '';
-        let operator = null;
-        let previousInput = '';
-        let shouldResetDisplay = false; // Flag to clear display after calculation
-
-        function appendNumber(number) {
-            if (shouldResetDisplay) {
-                currentInput = '';
-                shouldResetDisplay = false;
-            }
-            // Prevent multiple leading zeros unless it's the only digit
-            if (currentInput === '0' && number !== '.') currentInput = '';
-            currentInput += number;
-            updateDisplay();
-        }
-
-        function appendOperator(op) {
-            if (currentInput === '' && previousInput === '') return; // No operation if nothing entered
-
-            if (currentInput !== '') {
-                 // If there's already a previous input and an operator, calculate first
-                if (previousInput !== '' && operator) {
-                   calculateResultInternal(); // Calculate intermediate result
-                }
-                previousInput = currentInput; // Store current input as previous
-                currentInput = ''; // Clear current input for next number
-            }
-             // Allow changing the operator if no new number has been entered yet
-            operator = op;
-            shouldResetDisplay = false; // Don't reset display when operator is pressed
-            // Optionally display the operator or indicate it somehow, or just store it
-            // updateDisplay(); // You might want to update display to show operator or intermediate state
-        }
-
-        function appendDecimal() {
-            if (shouldResetDisplay) { // Start new number after calculation
-                currentInput = '0.';
-                shouldResetDisplay = false;
-            } else if (!currentInput.includes('.')) { // Only add decimal if one doesn't exist
-                 // Add leading zero if currentInput is empty
-                 if (currentInput === '') {
-                     currentInput = '0';
-                 }
-                currentInput += '.';
-            }
-             updateDisplay();
-        }
-
-        function clearDisplay() {
-            currentInput = '';
-            previousInput = '';
-            operator = null;
-            shouldResetDisplay = false;
-            updateDisplay();
-        }
-
-        function deleteLast() {
-            if (shouldResetDisplay) { // If showing result, clear instead of deleting
-                clearDisplay();
-                return;
-            }
-            currentInput = currentInput.slice(0, -1);
-            // If input becomes empty, display 0 or nothing (preference)
-            if(currentInput === '') {
-                // display.value = '0'; // Option 1: Show 0
-                updateDisplay();    // Option 2: Show blank or handle logic
-            } else {
-                updateDisplay();
-            }
-        }
-
-        function calculateResult() {
-            if (previousInput === '' || currentInput === '' || operator === null) {
-                return; // Need two operands and an operator
-            }
-            calculateResultInternal();
-            operator = null; // Reset operator after calculation
-            shouldResetDisplay = true; // Next number press should clear the display
-        }
-
-        function calculateResultInternal() {
-            const prev = parseFloat(previousInput);
-            const current = parseFloat(currentInput);
-            let result;
-
-            if (isNaN(prev) || isNaN(current)) return; // Avoid calculation if inputs aren't valid numbers
-
-            switch (operator) {
-                case '+':
-                    result = prev + current;
-                    break;
-                case '-':
-                    result = prev - current;
-                    break;
-                case '*':
-                    result = prev * current;
-                    break;
-                case '/':
-                    if (current === 0) {
-                        alert("Division by zero is not allowed.");
-                        clearDisplay(); // Clear on error
-                        return;
-                    }
-                    result = prev / current;
-                    break;
-                default:
-                    return; // Exit if operator is somehow invalid
-            }
-
-            // Handle potential floating point inaccuracies for simple cases
-            // result = parseFloat(result.toFixed(10)); // Limit precision
-
-            currentInput = result.toString(); // Store result as the new currentInput for chained operations
-            previousInput = ''; // Clear previous input after calculation for this step
-            // operator = null; // Reset operator *only* in the main calculateResult function
-            updateDisplay();
-        }
-
-
-        function updateDisplay() {
-            display.value = currentInput || previousInput || '0'; // Show currentInput, fallback to previousInput, then 0
-        }
-
-        // Initialize display
-        updateDisplay(); // Show '0' initially
-
-    </script>
-
-</body>
-</html>
-</code></pre>
-
-            <h4>Explanation:</h4>
-            <p><strong>HTML (Structure):</strong></p>
-            <ul>
-                <li>Sets up the basic page structure (<code><!DOCTYPE></code>, <code><html></code>, <code><head></code>, <code><body></code>).</li>
-                <li>Includes a disabled text input (<code>#display</code>) to show numbers and results.</li>
-                <li>Creates buttons for numbers (0-9), operators (+, -, *, /), decimal point (.), clear (C), delete (DEL), and equals (=).</li>
-                <li>Each button has an <code>onclick</code> attribute calling a specific JavaScript function.</li>
-                <li>The <code><style></code> tags are placed in the <code><head></code> for CSS.</li>
-                <li>The <code><script></code> tags are placed at the end of the <code><body></code> for JavaScript.</li>
-            </ul>
-            <p><strong>CSS (Styling - within <code><style></code>):</strong></p>
-            <ul>
-                <li>Provides styling for the calculator layout, display, and buttons.</li>
-                <li>Uses CSS Grid (<code>display: grid</code>) for button arrangement in a 4-column layout.</li>
-                <li>Styles the '0' button to span 2 columns and the '=' button to span 2 rows for a common calculator layout.</li>
-                <li>Adds visual appeal (colors, padding, margins, button hover effects).</li>
-            </ul>
-            <p><strong>JavaScript (Functionality - within <code><script></code>):</strong></p>
-            <ul>
-                <li><code>display</code>: Reference to the input field DOM element.</li>
-                <li>Variables (<code>currentInput</code>, <code>operator</code>, <code>previousInput</code>, <code>shouldResetDisplay</code>): To keep track of the calculator's state.</li>
-                <li><code>appendNumber(number)</code>: Adds a digit to the current input.</li>
-                <li><code>appendOperator(op)</code>: Handles operator clicks, storing the first number and the operator, and performs intermediate calculations if needed.</li>
-                <li><code>appendDecimal()</code>: Adds a decimal point if one isn't already present in the current input.</li>
-                <li><code>clearDisplay()</code>: Resets the calculator's state and display.</li>
-                <li><code>deleteLast()</code>: Removes the last character from the current input.</li>
-                <li><code>calculateResult()</code>: Triggers the final calculation when '=' is pressed.</li>
-                <li><code>calculateResultInternal()</code>: Performs the actual calculation logic based on stored inputs and operator. Includes basic error handling for division by zero.</li>
-                <li><code>updateDisplay()</code>: Updates the value shown in the display input field.</li>
-            </ul>
-
-            <h4>How to Use This Representation:</h4>
-            <ol>
-                <li>Save the entire HTML code block above (starting with <code><!DOCTYPE html></code> and ending with <code></html></code>) into a new text file.</li>
-                <li>Give the file a name with an <code>.html</code> extension (e.g., <code>gemini_calculator_conversation.html</code>).</li>
-                <li>Open the saved <code>.html</code> file in your web browser.</li>
-            </ol>
-            <p>This HTML file will display the conversation, showing the user prompt and the Gemini response which includes the calculator code and its explanation.</p>
-             <p><em>If you want to actually <strong>use</strong> the calculator described, you should copy the code block labeled "HTML (including CSS and JavaScript)" into a separate file (e.g., <code>calculator.html</code>) and open that file in your browser.</em></p>
-
-        </div>
+        <ol>
+            <li>
+                <strong>Create GitHub Repository:</strong> Start by creating a new public repository on GitHub to host your wiki files.
+            </li>
+            <li>
+                <strong>Choose Static Site Generator (SSG):</strong> Select an SSG compatible with GitHub Pages (like Jekyll - native support, Hugo, Eleventy, or even plain HTML/JS). This tool will build your HTML pages from source files (like <code>.md</code> files).
+            </li>
+            <li>
+                <strong>Local Development Setup:</strong> Clone the repository to your local machine and set up the chosen SSG's development environment according to its documentation.
+            </li>
+            <li>
+                <strong>Develop Basic Wiki Structure:</strong> Create your initial wiki pages using Markdown (<code>.md</code> files). Organize them logically with folders and create basic navigation (e.g., a sidebar, index page).
+            </li>
+            <li>
+                <strong>Enable GitHub Pages:</strong> Go to your repository's Settings -> Pages. Select the branch (usually <code>main</code> or <code>gh-pages</code>) and folder (usually <code>/</code> or <code>/docs</code>) to deploy from. GitHub Pages will build and host your SSG site.
+            </li>
+            <li>
+                <strong>Select AI Feature & Provider:</strong> Decide what AI feature you want (e.g., semantic search, Q&A over documents, summarization). Choose an AI provider (like OpenAI, Google Gemini, Cohere) and identify the relevant API.
+            </li>
+            <li>
+                <strong>Obtain API Key:</strong> Sign up for the chosen AI provider's service and get an API key. <span class="security-note">Crucially, plan how to handle this key securely</span> – exposing it directly in client-side code is risky. (Consider environment variables during build or a serverless function proxy, though the latter adds complexity beyond basic GH Pages).
+            </li>
+            <li>
+                <strong>Design AI Interface:</strong> Add UI elements to your wiki's template(s) for the AI interaction (e.g., a search input box, a button to submit a question, an area to display results).
+            </li>
+            <li>
+                <strong>Implement Client-Side JavaScript:</strong> Write JavaScript code (in your SSG's assets folder) to:
+                <ul>
+                    <li>Capture user input from the UI elements.</li>
+                    <li>Prepare the data/prompt for the AI API call.</li>
+                    <li>Use the <code>fetch</code> API to make requests to the AI provider's endpoint, including your (securely handled) API key.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Process & Display AI Results:</strong> Enhance your JavaScript to parse the JSON response from the AI API and dynamically update the wiki page's HTML to display the results (e.g., show search results, display an answer).
+            </li>
+            <li>
+                <strong>Test and Refine:</strong> Test the AI integration thoroughly. Debug issues, refine the prompts sent to the AI for better results, and improve the user interface based on testing. Test deployment on GitHub Pages.
+            </li>
+            <li>
+                <strong>Commit, Push, and Iterate:</strong> Commit your code (SSG configuration, content, templates, JavaScript) to your repository and push it to the branch configured for GitHub Pages. Your site will rebuild and deploy. Continuously add content and improve the AI features.
+            </li>
+        </ol>
     </div>
 </body>
 </html>
