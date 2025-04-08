@@ -3,331 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>12 Steps: AI-Driven Wiki via GitHub Pages</title>
+    <title>Collaborative Video Wiki Platform</title>
     <style>
         body {
-            font-family: sans-serif;
-            line-height: 1.6;
+            display: flex;
             margin: 0;
-            padding: 0;
+        }
+        .sidebar {
+            width: 200px;
             background-color: #f4f4f4;
+            padding: 10px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            height: 100vh;
+        }
+        .sidebar a {
+            text-decoration: none;
             color: #333;
+            display: block;
+            padding: 8px 0;
         }
-        .container {
-            max-width: 800px;
-            margin: 30px auto;
+        .sidebar a:hover {
+            background-color: #ddd;
+            padding-left: 10px;
+        }
+        .content {
+            flex: 1;
             padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #2c3e50;
-            text-align: center;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-            margin-bottom: 25px;
-        }
-        ol {
-            padding-left: 20px; /* Indent the list numbers */
-        }
-        li {
-            margin-bottom: 15px; /* Space between steps */
-        }
-        strong {
-            color: #34495e; /* Slightly darker color for emphasis */
-        }
-        code {
-            background-color: #ecf0f1;
-            padding: 0.2em 0.4em;
-            border-radius: 3px;
-            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-            font-size: 0.9em;
-        }
-        .security-note {
-            color: #c0392b; /* Reddish color for security warning */
-            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h3>A self-service wiki is an ideal vehicle to gather knowledge across a team and to teach team members how to begin using AI.</h3>
-
-
-        
-        <h1>12 Steps to AI-Driven Wikis on GitHub Pages</h1>
-
-        <ol>
-            <li>
-                <strong>Create GitHub Repository:</strong> Start by creating a new public repository on GitHub to host your wiki files.
-            </li>
-            <li>
-                <strong>Choose a Static Site Generator (SSG):</strong> Select an SSG compatible with GitHub Pages (There are hundreds to chose from but consider Jekyll - native support, Astro, Hugo, Eleventy (11ty), Gatsby, or even plain HTML/JS). These tools will build your HTML pages from source files (like <code>.md</code> files). Check out <a href="https://11ty.rocks/posts/create-your-first-basic-11ty-website/" target="_blank" rel="noopener noreferrer">Some would claim that 11ty is the easiest to learn (opens in new tab)</a>. The landscape of static site generators is evolving rapidly with AI integration. Open-source solutions like Hugo (GoLang fans) and Pelican (For Python enthusiasts) continue to dominate, offering powerful features for developers, while user-friendly options like Publii make static site generation accessible to a broader audience. Meanwhile, emerging AI-driven tools like Mobirise showcase the potential for automation in content creation and web design. As AI capabilities advance, we can expect to see more innovative solutions emerge, further simplifying the process of creating fast, secure, and intelligent static websites.  
-            </li>
-            <li>
-                <strong>Local Development Setup:</strong> Clone the repository to your local machine and set up the chosen SSG's development environment according to its documentation.
-            </li>
-            <li>
-                <strong>Develop Basic Wiki Structure:</strong> Create your initial wiki pages using Markdown (<code>.md</code> files). Organize them logically with folders and create basic navigation (e.g., a sidebar, index page).
-            </li>
-            <li>
-                <strong>Enable GitHub Pages:</strong> Go to your repository's Settings -> Pages. Select the branch (usually <code>main</code> or <code>gh-pages</code>) and folder (usually <code>/</code> or <code>/docs</code>) to deploy from. GitHub Pages will build and host your SSG site.
-            </li>
-            <li>
-                <strong>Select AI Feature & Provider:</strong> Decide what AI feature you want (e.g., semantic search, Q&A over documents, summarization). Choose an AI provider (like OpenAI, Google Gemini, Cohere) and identify the relevant API.
-            </li>
-            <li>
-                <strong>Obtain API Key:</strong> Sign up for the chosen AI provider's service and get an API key. <span class="security-note">Crucially, plan how to handle this key securely</span> – exposing it directly in client-side code is risky. (Consider environment variables during build or a serverless function proxy, though the latter adds complexity beyond basic GH Pages).
-            </li>
-            <li>
-                <strong>Design AI Interface:</strong> Add UI elements to your wiki's template(s) for the AI interaction (e.g., a search input box, a button to submit a question, an area to display results).
-            </li>
-            <li>
-                <strong>Implement Client-Side JavaScript:</strong> Write JavaScript code (in your SSG's assets folder) to:
-                <ul>
-                    <li>Capture user input from the UI elements.</li>
-                    <li>Prepare the data/prompt for the AI API call.</li>
-                    <li>Use the <code>fetch</code> API to make requests to the AI provider's endpoint, including your (securely handled) API key.</li>
-                </ul>
-            </li>
-            <li>
-                <strong>Process & Display AI Results:</strong> Enhance your JavaScript to parse the JSON response from the AI API and dynamically update the wiki page's HTML to display the results (e.g., show search results, display an answer).
-            </li>
-            <li>
-                <strong>Test and Refine:</strong> Test the AI integration thoroughly. Debug issues, refine the prompts sent to the AI for better results, and improve the user interface based on testing. Test deployment on GitHub Pages.
-            </li>
-            <li>
-                <strong>Commit, Push, and Iterate:</strong> Commit your code (SSG configuration, content, templates, JavaScript) to your repository and push it to the branch configured for GitHub Pages. Your site will rebuild and deploy. Continuously add content and improve the AI features.
-            </li>
-            <li>
-            Check out <a href="https://g.co/gemini/share/ddc7606e17a7" target="_blank" rel="noopener noreferrer">Wiki in GH Pages (opens in new tab)</a>.
-            for deeper dive on AI driven Wiki pages..
-            </li>
-
-            <nav>
-        <ul>
-            <li><a href="#introduction">Introduction</a></li>
-            <li><a href="#setting-up-repository">Setting Up Your GitHub Repository</a></li>
-            <li><a href="#homepage-structure">Creating the Basic Wiki Structure: The Homepage (index.html)</a></li>
-            <li><a href="#embedding-videos">Embedding YouTube Videos</a></li>
-            <li><a href="#multiple-pages">Structuring Your Wiki with Multiple Pages and Navigation</a></li>
-            <li><a href="#linking-pages">Linking Between Wiki Pages</a></li>
-            <li><a href="#organizing-content">Organizing Your Wiki Content for Clarity</a></li>
-            <li><a href="#customizing-css">Customizing the Look and Feel with CSS</a></li>
-            <li><a href="#deploying-to-github-pages">Deploying Your HTML Wiki to GitHub Pages</a></li>
-            <li><a href="#considerations-limitations">Important Considerations and Limitations</a></li>
-            <li><a href="#conclusion">Conclusion</a></li>
-        </ul>
-    </nav>
-    <main>
-        <section id="introduction">
-            <h2>1. Introduction</h2>
-            <p>GitHub Pages offers a straightforward method for hosting static websites directly from a GitHub repository.[1] This capability extends to creating a wiki, which serves as a collaborative platform for organizing and sharing knowledge. This document provides a detailed, step-by-step guide on how to establish a basic wiki on GitHub Pages using HTML, with the added functionality of embedding streaming videos from YouTube. The process involves setting up a repository, structuring the wiki pages using HTML, integrating YouTube videos via the <code>&lt;iframe&gt;</code> tag, creating navigation between multiple pages, applying basic styling with CSS, and finally, deploying the wiki online.</p>
-        </section>
-
-        <section id="setting-up-repository">
-            <h2>2. Setting Up Your GitHub Repository for the Wiki</h2>
-            <p>The foundation for hosting your wiki on GitHub Pages is a GitHub repository.[2, 3, 4, 5, 6, 7] This repository will house all the files that constitute your wiki, including the HTML pages, CSS stylesheets, and any other assets. To begin, you will need to create a new repository on GitHub.[2, 6] This can be done by clicking the "+" sign in the upper-right corner of the GitHub homepage and selecting "New repository".[2] You will then need to fill in the repository name, provide an optional description, and choose the visibility (public or private, noting that GitHub Pages for free accounts requires public repositories).[2, 6] While the query does not specify a personal or organizational page, it is important to note that for creating a user or organization site (accessible at <code>yourusername.github.io</code> or <code>yourorganization.github.io</code>), the repository must be named in that specific format.[6] For a project-specific wiki, any valid repository name is acceptable. After configuring these settings, click the "Create repository" button.[2] Alternatively, you can utilize an existing repository if you prefer to keep your wiki content alongside your project files.</p>
-        </section>
-
-        <section id="homepage-structure">
-            <h2>3. Creating the Basic Wiki Structure: The Homepage (index.html)</h2>
-            <p>GitHub Pages automatically looks for a specific entry file to serve as the homepage of your website.[6, 7] This can be an <code>index.html</code>, <code>index.md</code>, or <code>README.md</code> file. For an HTML-based wiki, the primary entry point will be an <code>index.html</code> file. This file will serve as the central hub of your wiki, providing an overview and links to other sections. A basic HTML structure for the <code>index.html</code> file typically includes the following elements:</p>
-            <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Your Wiki Title&lt;/title&gt;
-    &lt;link rel="stylesheet" href="style.css"&gt; &lt;/head&gt;
-&lt;body&gt;
-    &lt;header&gt;
-        &lt;h1&gt;Your Wiki Title&lt;/h1&gt;
-    &lt;/header&gt;
-    &lt;nav&gt;
-        &lt;ul&gt;
-            &lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
-            &lt;/ul&gt;
-    &lt;/nav&gt;
-    &lt;main&gt;
-        &lt;/main&gt;
-    &lt;footer&gt;
-        &lt;/footer&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-            <p>The <code>&lt;head&gt;</code> section contains meta-information about the HTML document, such as the character set, viewport settings for responsiveness, the title that appears in the browser tab, and a link to an external CSS file (<code>style.css</code>) for styling the wiki's appearance.[8, 9] The <code>&lt;body&gt;</code> section encompasses all the visible content of the wiki. The <code>&lt;header&gt;</code> typically contains the main title of the wiki. The <code>&lt;nav&gt;</code> element is used for the navigation menu, which will contain links to different sections of the wiki. The <code>&lt;main&gt;</code> section holds the primary content of the homepage, and the <code>&lt;footer&gt;</code> can include copyright information or other relevant details. Establishing a well-structured HTML foundation from the beginning will contribute to the overall maintainability and organization of the wiki as it grows.[10]</p>
-        </section>
-
-        <section id="embedding-videos">
-            <h2>4. Embedding YouTube Videos into Your Wiki Page</h2>
-            <p>To incorporate streaming videos from YouTube into your wiki pages, the standard method involves using the <code>&lt;iframe&gt;</code> tag in your HTML.[11, 12, 13, 14] This tag creates an inline frame that can display content from another source, such as a YouTube video. To embed a video, you first need to obtain the embed code from YouTube.[11, 12] This can be done by navigating to the desired YouTube video on the YouTube website. Below the video player, click the "Share" button, and then select the "Embed" option. YouTube will provide an <code>&lt;iframe&gt;</code> code snippet that you can copy and paste into your HTML file.</p>
-            <p>The <code>&lt;iframe&gt;</code> tag includes several key attributes that control the video's display and behavior.[11, 12, 13, 14] The <code>src</code> attribute specifies the URL of the YouTube video to be embedded, typically in the format <code>https://www.youtube.com/embed/VIDEO_ID</code>, where <code>VIDEO_ID</code> is the unique identifier of the video. The <code>width</code> and <code>height</code> attributes define the dimensions of the embedded video player in pixels. The <code>frameborder</code> attribute, usually set to <code>0</code>, determines whether a border should be displayed around the player. The <code>allowfullscreen</code> attribute enables viewers to watch the video in fullscreen mode. Additionally, the <code>allow</code> attribute specifies various permissions for the iframe, such as <code>accelerometer</code>, <code>autoplay</code>, <code>clipboard-write</code>, <code>encrypted-media</code>, <code>gyroscope</code>, <code>picture-in-picture</code>, and <code>web-share</code>.</p>
-            <p>Here's an example of how you might embed a YouTube video within the <code>&lt;main&gt;</code> section of your <code>index.html</code> page:</p>
-            <pre><code>&lt;main&gt;
-    &lt;h2&gt;Welcome to the Wiki!&lt;/h2&gt;
-    &lt;p&gt;This is the homepage of our wiki, where you can find information about various topics.&lt;/p&gt;
-    &lt;h3&gt;Featured Video&lt;/h3&gt;
-    &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen&gt;&lt;/iframe&gt;
-    &lt;p&gt;Check out our other sections using the navigation links above.&lt;/p&gt;
-&lt;/main&gt;
-</code></pre>
-            <p>YouTube also offers several parameters that can be added to the <code>src</code> URL to customize the embedding experience.[11, 14] For enhanced user privacy, you can use privacy-enhanced mode by changing the domain in the <code>src</code> attribute from <code>https://www.youtube.com</code> to <code>https://www.youtube-nocookie.com</code>.[11] To make the video start playing automatically when the page loads, you can add <code>?autoplay=1</code> to the end of the video's <code>src</code> URL, although browser restrictions may apply to autoplaying videos.[11, 14] If you want the video to start at a specific time, you can use the <code>?start=SECONDS</code> parameter, replacing <code>SECONDS</code> with the desired starting time in seconds.[11, 14] To display captions by default (if available for the video), you can add the <code>&amp;cc_load_policy=1</code> parameter.[11, 14] You can also set a preferred caption language using the <code>&amp;cc_lang_pref=LANGUAGE_CODE</code> parameter, where <code>LANGUAGE_CODE</code> is a two-letter language code (e.g., <code>fr</code> for French).[11, 14]</p>
-            <p>The following table summarizes some common YouTube embedding parameters:</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Parameter</th>
-                        <th>Description</th>
-                        <th>Example</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><code>autoplay=1</code></td>
-                        <td>Automatically starts playing the video (browser restrictions may apply).</td>
-                        <td><code>src="...VIDEO_ID?autoplay=1"</code></td>
-                    </tr>
-                    <tr>
-                        <td><code>start=SECONDS</code></td>
-                        <td>Starts the video at a specific time in seconds.</td>
-                        <td><code>src="...VIDEO_ID?start=90"</code></td>
-                    </tr>
-                    <tr>
-                        <td><code>cc_load_policy=1</code></td>
-                        <td>Shows captions by default (if available).</td>
-                        <td><code>src="...VIDEO_ID&amp;cc_load_policy=1"</code></td>
-                    </tr>
-                    <tr>
-                        <td><code>cc_lang_pref=CODE</code></td>
-                        <td>Sets the preferred caption language (e.g., <code>fr</code> for French).</td>
-                        <td><code>src="...VIDEO_ID&amp;cc_lang_pref=fr&amp;cc_load_policy=1"</code></td>
-                    </tr>
-                    <tr>
-                        <td><code>privacy_mode</code></td>
-                        <td>Use <code>youtube-nocookie.com</code> for enhanced privacy.</td>
-                        <td><code>src="https://www.youtube-nocookie.com/embed/..."</code></td>
-                    </tr>
-                </tbody>
-            </table>
-            <p>Understanding these options allows for a more tailored integration of YouTube videos within your wiki pages.</p>
-        </section>
-
-        <section id="multiple-pages">
-            <h2>5. Structuring Your Wiki with Multiple Pages and Navigation</h2>
-            <p>A typical wiki consists of multiple pages, each dedicated to a specific topic or section.[2, 10] To create this structure on GitHub Pages, you will need to create additional HTML files for each section of your wiki (e.g., <code>page1.html</code>, <code>tutorials.html</code>, <code>faq.html</code>).[6] It is important to establish a clear and consistent naming convention for these files to maintain organization.[15, 16] For instance, you might name pages based on their main topic.</p>
-            <p>To enable users to navigate between these different pages, you will need to create a navigation menu. This is typically done within the <code>&lt;nav&gt;</code> element in your <code>index.html</code> file (and potentially on all other pages for consistent navigation) using unordered lists (<code>&lt;ul&gt;</code>) and list items (<code>&lt;li&gt;</code>) containing anchor tags (<code>&lt;a&gt;</code>).[17, 18, 19] The <code>href</code> attribute of the anchor tag will specify the link to another HTML file.</p>
-            <p>Here's an example of a basic navigation menu:</p>
-            <pre><code>&lt;nav&gt;
-    &lt;ul&gt;
-        &lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="page1.html"&gt;Page 1&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="tutorials.html"&gt;Tutorials&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="faq.html"&gt;FAQ&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-&lt;/nav&gt;
-</code></pre>
-            <p>The links in the navigation menu utilize relative links to connect the different HTML files within the same repository.[17, 18, 19, 20] Relative links specify the path to the linked file relative to the location of the current file. For files in the same directory, you can simply use the filename (e.g., <code>page1.html</code>). If a file is in a subdirectory, you would include the subdirectory name followed by a slash and the filename (e.g., <code>tutorials/getting-started.html</code>). To link back to a file in the parent directory, you would use <code>../</code> before the filename (e.g., <code>&lt;a href="../index.html"&gt;Home&lt;/a&gt;</code> from a page within a subdirectory).</p>
-        </section>
-
-        <section id="linking-pages">
-            <h2>6. Linking Between Wiki Pages</h2>
-            <p>Using relative links is essential for creating a functional multi-page wiki on GitHub Pages.[17, 18, 19] The structure of your repository will determine the paths you use in your links. Consider the following example file structure:</p>
-            <pre><code>wiki-repo/
-├── index.html
-├── section1/
-│   └── page1.html
-└── section2/
-    └── page2.html
-</code></pre>
-            <p>To link from the homepage (<code>index.html</code>) to <code>page1.html</code>, which is inside the <code>section1</code> directory, you would use the following link in your <code>index.html</code>: <code>&lt;a href="section1/page1.html"&gt;Go to Page 1&lt;/a&gt;</code>. From <code>page1.html</code>, to link back to the homepage (<code>index.html</code>), you would use: <code>&lt;a href="../index.html"&gt;Home&lt;/a&gt;</code>, as <code>../</code> directs the browser to go up one level in the directory structure. To link from <code>page1.html</code> to <code>page2.html</code>, which is in the <code>section2</code> directory (a sibling of <code>section1</code>), you would use: <code>&lt;a href="../../section2/page2.html"&gt;Go to Page 2&lt;/a&gt;</code>. Here, <code>../</code> goes up from <code>section1</code> to the root, and another <code>../</code> would be incorrect; instead, you would then navigate down to the <code>section2</code> directory.</p>
-            <p>GitHub Pages automatically handles the <code>.html</code> extension in your links.[5, 18, 20] This means that even though your files are named with the <code>.html</code> extension, you typically don't need to include the extension in your relative links. For example, <code>&lt;a href="about"&gt;About Us&lt;/a&gt;</code> would correctly link to <code>about.html</code> if it exists in the same directory. This simplifies the linking process and makes the URLs appear cleaner.</p>
-        </section>
-
-        <section id="organizing-content">
-            <h2>7. Organizing Your Wiki Content for Clarity</h2>
-            <p>The effectiveness of your wiki depends heavily on how well the content is organized within each page.[15, 16, 21, 22, 23] Employing a hierarchical structure using headings (<code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>) and subheadings helps break down information into digestible sections.[15, 16, 22] Consistent naming conventions for both pages and headings ensure that users can easily understand the purpose and content of each section.[16, 21] Utilizing unordered (<code>&lt;ul&gt;</code>, <code>&lt;li&gt;</code>) and ordered (<code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code>) lists can improve readability and make it easier to follow steps or understand related items. While the current focus is on video embedding, incorporating relevant images and diagrams can further enhance understanding.</p>
-            <p>Internal linking between related pages within the wiki is crucial for providing context and allowing users to explore topics in more detail.[15] Keeping the content clear, concise, and focused on the topic at hand will prevent information overload.[16, 22] For longer pages, consider manually creating a table of contents at the beginning of the page using links to the different sections (identified by their headings) or implementing a sidebar navigation that remains visible across all pages.[15, 16] This can significantly improve the user experience by allowing quick access to specific information.</p>
-        </section>
-
-        <section id="customizing-css">
-            <h2>8. Customizing the Look and Feel with CSS</h2>
-            <p>To enhance the visual presentation of your wiki, you can use CSS (Cascading Style Sheets).[8, 9, 24, 25, 26] You will typically create a separate CSS file (e.g., <code>style.css</code>) within the root of your repository or in an <code>assets/css</code> folder for better organization.[8, 9, 24, 25, 26] This CSS file will contain the styling rules for your wiki pages. To link this CSS file to your HTML pages, you need to add a <code>&lt;link&gt;</code> tag within the <code>&lt;head&gt;</code> section of each HTML file [8, 9]:</p>
-            <pre><code>&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Your Wiki Title&lt;/title&gt;
-    &lt;link rel="stylesheet" href="style.css"&gt;
-&lt;/head&gt;
-</code></pre>
-            <p>Here are some basic CSS examples to get you started with customization [8, 9, 25, 26]:</p>
-            <pre><code>/* style.css */
-
-body {
-    font-family: sans-serif;
-    margin: 20px;
-    line-height: 1.6;
-}
-
-header h1 {
-    color: #333;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    text-align: center;
-    margin-bottom: 15px;
-}
-
-nav li {
-    display: inline;
-    margin-right: 10px;
-}
-
-nav a {
-    text-decoration: none;
-    color: #007bff;
-}
-
-main {
-    margin-bottom: 30px;
-}
-
-footer {
-    text-align: center;
-    font-size: 0.8em;
-    color: #777;
-}
-</code></pre>
-            <p>This basic CSS provides a foundation for styling the body text, header, navigation menu, main content area, and footer. You can further customize the appearance by adding more CSS rules to target specific elements and apply styles such as different fonts, colors, spacing, and layout adjustments. While more advanced styling can be achieved using pre-built CSS themes or frameworks, starting with basic CSS allows for a simple yet effective way to personalize the look and feel of your wiki. If you were to use a Jekyll theme with GitHub Pages (which is not the focus here but a common practice), you could override the default theme styles by creating a <code>style.scss</code> file in the <code>assets/css</code> directory and importing the theme's CSS.[25, 26]</p>
-        </section>
-
-        <section id="deploying-to-github-pages">
-            <h2>9. Deploying Your HTML Wiki to GitHub Pages</h2>
-            <p>Once you have created your HTML pages, embedded the YouTube videos, set up the navigation, and applied any desired CSS styling, the final step is to deploy your wiki to GitHub Pages.[4, 5, 6, 7, 27] This involves several steps:</p>
-            <ol>
-                <li><strong>Commit and Push Your Files:</strong> First, ensure that all your HTML and CSS files (including the <code>index.html</code> file) are saved, committed to your local Git repository, and pushed to your remote GitHub repository.[2, 4, 7, 10, 27] You can use Git commands like <code>git add.</code>, <code>git commit -m "Initial wiki content"</code>, and <code>git push origin main</code> (assuming <code>main</code> is your default branch).</li>
-                <li><strong>Enable GitHub Pages:</strong> Next, navigate to your repository on the GitHub website. Click on the "Settings" tab. In the left sidebar, under the "Code and automation" section, click "Pages".[6, 7] Under the "Source" section, select "Deploy from a branch".[6, 7, 24] Choose the branch you want to deploy (typically <code>main</code> or <code>master</code>).[5, 6, 7] Then, select the folder containing your HTML files. If your <code>index.html</code> file is in the root of your repository, choose "(root)". If you have placed your HTML files in a <code>docs</code> folder (a common practice for documentation sites), select the <code>/docs</code> option.[6, 7, 24, 28, 29] Finally, click the "Save" button.[6, 7, 24]</li>
-                <li><strong>Access Your Deployed Wiki:</strong> After saving the settings, GitHub will start the process of building and deploying your website. Once the process is complete (which might take a few minutes), your wiki will be accessible at a unique URL. If you created a project page (repository name is not in the format <code>&lt;username&gt;.github.io</code>), the URL will be <code>https://&lt;your-github-username&gt;.github.io/&lt;your-repository-name&gt;/</code>.[5, 6, 7] If you created a user or organization site (repository named <code>&lt;your-github-username&gt;.github.io</code> or <code>&lt;your-organization-name&gt;.github.io</code>), the URL will be <code>https://&lt;your-github-username&gt;.github.io/</code> or <code>https://&lt;your-organization-name&gt;.github.io/</code> respectively.[5, 6] You might need to wait a few minutes for the site to become live.[4, 5, 6, 7]</li>
-            </ol>
-            <p>It's also worth noting that you have the option to configure a custom domain name for your GitHub Pages site if you prefer a more personalized web address.[6, 24, 27] This involves adding a CNAME file to your repository and configuring your domain registrar's DNS settings.</p>
-        </section>
-
-        <section id="considerations-limitations">
-            <h2>10. Important Considerations and Limitations</h2>
-            <p>While GitHub Pages provides a convenient platform for hosting static wikis, it's important to be aware of certain considerations and limitations.[1, 30, 31, 32, 33] GitHub Pages is primarily designed for hosting static content.[1] This means that dynamic features that require server-side processing, such as a built-in search functionality that indexes the wiki content or user authentication, are not directly supported. However, you can potentially integrate client-side search solutions or embed external services to achieve similar functionality.</p>
-            <p>There are also usage limits to consider, such as the recommended repository size, the maximum size of the published site, and bandwidth limitations.[1, 30, 31, 32] Embedding a large number of high-resolution YouTube videos could contribute to the overall size of your wiki. Additionally, the embedded YouTube videos rely entirely on the availability of those videos on the YouTube platform.[33] If a video is removed from YouTube, it will no longer be accessible within your wiki. Furthermore, content embedded via iframes might not be readily available for offline access unless the user has previously viewed the content and it has been cached by their browser.[33] Finally, it's important to remember that GitHub Pages is not intended for commercial transactions or for hosting online businesses or SaaS applications.[1]</p>
-        </section>
-
-        <section id="conclusion">
-            <h2>11. Conclusion</h2>
-            <p>Creating an HTML-based wiki with embedded YouTube videos on GitHub Pages is a feasible and relatively straightforward process. By following the steps outlined in this guide, you can set up a repository, structure your wiki content using HTML, seamlessly integrate YouTube videos using the <code>&lt;iframe&gt;</code> tag, establish navigation between multiple pages with relative links, apply basic styling using CSS, and deploy your wiki online via GitHub Pages. The platform offers free hosting and leverages the version control capabilities of Git, making it a valuable tool for sharing documentation, knowledge bases, or project information. While there are limitations associated with GitHub Pages being a static site hosting service, for many use cases, it provides an accessible and efficient solution for creating a simple and functional wiki. Maintaining and expanding your wiki will involve updating the HTML files with new content and ensuring that the links and embedded videos remain accurate over time.</p>
-        </section>
-        </ol>
+    <div class="sidebar">
+        <h3>Navigation</h3>
+        <a href="index.html">Home</a>
+        <a href="content.html">Content Structure</a>
+        <a href="features.html">Contribution Features</a>
+        <a href="community.html">Community Features</a>
+        <a href="engagement.html">Engagement Tools</a>
+    </div>
+    <div class="content">
+        <h1>Welcome to the Collaborative Video Wiki Platform</h1>
+        <p>Explore the sections using the navigation bar to learn more about the ideas and features of this platform.</p>
     </div>
 </body>
 </html>
